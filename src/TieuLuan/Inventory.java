@@ -19,7 +19,6 @@ public class Inventory {
     public void add(Scanner input){
         System.out.println("Bạn muốn thêm loại hàng nào?");
 		System.out.print("1) Điện máy	2) Sành Sứ	3) Thực Phẩm ----> Lựa chọn: ");
-		// loaiHang = chose 
 		int chose  = input.nextInt();
         if(chose <= 3){
         
