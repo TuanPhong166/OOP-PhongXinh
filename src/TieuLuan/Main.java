@@ -12,58 +12,52 @@ public class Main {
 
         Date a = new Date();
 
-        Electric headE = new Electric(1,"Tủ lạnh", 2, a) ;
-        CrockerySet headCS = new CrockerySet(2, "Đĩa ", 5, a);
-        Food headF = new Food(3, "Táo", 4, a) ;
+        Electric headE = new Electric(1,"Fridge", 140000, a) ;
+        CrockerySet headCS = new CrockerySet(2, "Plate", 5, a);
+        Food headF = new Food(3, "Apple", 4, a) ;
 
-        Electric electric1 = new Electric(4, "Tivi", 10, a);
+        Electric electric1 = new Electric(4, "Televison", 10, a);
         headE.next = electric1;
-        CrockerySet crockerySet1 = new CrockerySet(5, "Chén", 11, a) ;
+        CrockerySet crockerySet1 = new CrockerySet(5, "Bowl", 11, a) ;
         headCS.next = crockerySet1 ;
-        Food food1 = new Food(6, "Cua", 2, a);
+        Food food1 = new Food(6, "Crab", 2, a);
         headF.next = food1 ;
 
         
         Electric electric2 = new Electric(7, "Laptop", 10, a);
         electric1.next = electric2;
-        CrockerySet crockerySet2 = new CrockerySet(8, "Chai", 11, a) ;
+        CrockerySet crockerySet2 = new CrockerySet(8, "Pots", 11, a) ;
         crockerySet1.next = crockerySet2 ;
         Food food2 = new Food(9, "Pizza", 2, a);
         food1.next = food2 ;
 
-        Electric electric3 = new Electric(10, "Tai Phone", 10, a);
+        Electric electric3 = new Electric(10, "Earphone", 10, a);
         electric2.next = electric3;
-        CrockerySet crockerySet3 = new CrockerySet(11, "Chậu", 11, a) ;
+        CrockerySet crockerySet3 = new CrockerySet(11, "Teapot", 11, a) ;
         crockerySet2.next = crockerySet3 ;
-        Food food3 = new Food(12, "Tôm", 2, a);
+        Food food3 = new Food(12, "Loster", 2, a);
         food2.next = food3 ;
 
         Electric electric4 = new Electric(13 , "Pin", 10, a);
         electric3.next = electric4;
-        CrockerySet crockerySet4 = new CrockerySet(14, "Ly", 11, a) ;
+        CrockerySet crockerySet4 = new CrockerySet(14, "Glass", 11, a) ;
         crockerySet3.next = crockerySet4 ;
-        Food food4 = new Food(15, "Cá", 2, a);
+        Food food4 = new Food(15, "Fish", 2, a);
         food3.next = food4 ;
 
-        Electric electric5 = new Electric(16 , "Điện Thoại", 10, a);
+        Electric electric5 = new Electric(16 , "Telephone", 10, a);
         electric4.next = electric5;
-        CrockerySet crockerySet5 = new CrockerySet(17, "Bia", 11, a) ;
+        CrockerySet crockerySet5 = new CrockerySet(17, "Ceramics", 11, a) ;
         crockerySet4.next = crockerySet5 ;
-        Food food5 = new Food(18, "Gà", 2, a);
+        Food food5 = new Food(18, "Chicken", 2, a);
         food4.next = food5 ;
 
-        Electric electric6 = new Electric(19 , "Quạt ", 10, a);
+        Electric electric6 = new Electric(19 , "Fan", 10, a);
         electric5.next = electric6;
-        CrockerySet crockerySet6 = new CrockerySet(20, "Kính", 11, a) ;
+        CrockerySet crockerySet6 = new CrockerySet(20, "Porcelain table", 11, a) ;
         crockerySet5.next = crockerySet6 ;
-        Food food6 = new Food(21, "Cà chua", 2, a);
+        Food food6 = new Food(21, "Tomato", 2, a);
         food5.next = food6 ;
-
-
-
-
-
-
 
         inventory.headCrockerySet = headCS ;
         inventory.headElectric = headE ;

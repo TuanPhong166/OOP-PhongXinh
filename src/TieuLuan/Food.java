@@ -22,7 +22,7 @@ public class Food {
     }
 
     public void inThongTin(){
-        System.out.println("Tên hàng : "+name+", Loại hàng : Food "+", ID : "+id+", Giá : "+price+", Ngày nhập kho : "+date);
+        System.out.println("Commodities : Food"+". Product's name : "+name+". ID : "+id+". Price : "+price+". Input Day : "+date);
     }
 
     public void nhapThongTin(Scanner input){
