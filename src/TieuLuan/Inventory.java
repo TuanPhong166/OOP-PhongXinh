@@ -21,7 +21,7 @@ public class Inventory {
 		System.out.print("1) Điện máy	2) Sành Sứ	3) Thực Phẩm ----> Lựa chọn: ");
 		// loaiHang = chose 
 		int chose  = input.nextInt();
-
+        if(chose <= 3){
         
         if(chose == 1){
             Electric current = headElectric ;
@@ -64,6 +64,8 @@ public class Inventory {
                 current = current.next;
             }
         }
+        }else 
+             System.out.println("Bạn chọn sai r");
 
     }
 
@@ -128,6 +130,116 @@ public class Inventory {
             currentFood = currentFood.next ;
         }
 
+    }
+
+    public void delecte(Scanner input){
+        System.out.println("Muốn xóa theo cách nào");
+		System.out.print("1) Theo Id	2) Theo tên	3) Theo giá ----> Lựa chọn: ");
+		
+		int chose = input.nextInt();
+
+        if (chose == 1) {
+            System.out.print("Hãy nhập Id hàng cần xóa: ");
+			int idCanXoa = input.nextInt();
+
+            if (headElectric.id == idCanXoa) {
+                headElectric = headElectric.next ;
+                return ;
+            }
+
+            if (headCrockerySet.id == idCanXoa) {
+                headCrockerySet = headCrockerySet.next ;
+                return;
+            }
+
+            if (headFood.id == idCanXoa) {
+                headFood = headFood.next ;
+                return;
+            }
+
+            Electric curentElectric = headElectric ;
+            CrockerySet currentCrockerySet = headCrockerySet ;
+            Food currentFood = headFood ;
+
+            while ( curentElectric.next != null){
+                if (curentElectric.next.id == idCanXoa) {
+                    curentElectric.next = curentElectric.next.next;
+                    return;
+                }
+                curentElectric = curentElectric.next ;
+            }
+
+            while ( currentCrockerySet.next != null){
+                if (currentCrockerySet.next.id == idCanXoa) {
+                    currentCrockerySet.next = currentCrockerySet.next.next;
+                    return;
+                }
+                currentCrockerySet = currentCrockerySet.next ;
+            }
+
+            while ( currentFood.next != null){
+                if (currentFood.next.id == idCanXoa) {
+                    currentFood.next = currentFood.next.next;
+                    return;
+                }
+                currentFood = currentFood.next ;
+            }
+            System.out.println("Đã xóa thành công");
+        }
+
+        if (chose == 2 ) {
+            System.out.print("Hãy nhập tên hàng cần xóa: ");
+			input.nextLine();
+			String tenCanXoa = input.nextLine();
+
+            if (headElectric.name.equalsIgnoreCase(tenCanXoa)) {
+                headElectric = headElectric.next;
+                return;
+            }
+
+            if (headCrockerySet.name.equalsIgnoreCase(tenCanXoa)) {
+                headCrockerySet = headCrockerySet.next;
+                return;
+            }
+
+            if (headFood.name.equalsIgnoreCase(tenCanXoa)) {
+                headFood = headFood.next;
+                return;
+            }
+
+            Electric currentElectric = headElectric ;
+            CrockerySet currentCrockerySet = headCrockerySet;
+            Food currentFood = headFood ;
+
+            while (currentElectric.next != null) {
+                if (currentElectric.next.name.equalsIgnoreCase(tenCanXoa)) {
+                    currentElectric.next =currentElectric.next.next ;
+                    return ;
+                }
+                currentElectric = currentElectric.next ;
+            }
+
+            while (currentCrockerySet.next != null) {
+                if (currentCrockerySet.next.name.equalsIgnoreCase(tenCanXoa)) {
+                    currentCrockerySet.next =currentCrockerySet.next.next ;
+                    return ;
+                }
+                currentCrockerySet = currentCrockerySet.next ;
+            }
+
+            while (currentFood.next != null) {
+                if (currentFood.next.name.equalsIgnoreCase(tenCanXoa)) {
+                    currentFood.next =currentFood.next.next ;
+                    return ;
+                }
+                currentFood = currentFood.next ;
+            }
+            System.out.println("Đã xóa thành công.");
+        }
+           
+        if (chose == 3) {
+            
+        }
     }
 
 }

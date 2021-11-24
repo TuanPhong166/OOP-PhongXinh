@@ -22,6 +22,32 @@ public class Main {
         Food food1 = new Food(6, "Cua", 2, a);
         headF.next = food1 ;
 
+        
+        Electric electric2 = new Electric(4, "Tivi", 10, a);
+        electric1.next = electric2;
+        CrockerySet crockerySet2 = new CrockerySet(5, "Chén", 11, a) ;
+        crockerySet1.next = crockerySet2 ;
+        Food food2 = new Food(6, "Cua", 2, a);
+        food1.next = food2 ;
+
+        Electric electric3 = new Electric(4, "Tivi", 10, a);
+        electric2.next = electric3;
+        CrockerySet crockerySet3 = new CrockerySet(5, "Chén", 11, a) ;
+        crockerySet2.next = crockerySet3 ;
+        Food food3 = new Food(6, "Cua", 2, a);
+        food2.next = food3 ;
+
+        Electric electric4 = new Electric(4, "Tivi", 10, a);
+        electric3.next = electric4;
+        CrockerySet crockerySet4 = new CrockerySet(5, "Chén", 11, a) ;
+        crockerySet3.next = crockerySet4 ;
+        Food food4 = new Food(6, "Cua", 2, a);
+        food3.next = food4 ;
+
+
+
+
+
         inventory.headCrockerySet = headCS ;
         inventory.headElectric = headE ;
         inventory.headFood = headF ;
