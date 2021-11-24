@@ -176,14 +176,14 @@ public class Inventory {
                 currentCrockerySet = currentCrockerySet.next ;
             }
 
-            while ( currentFood.next != null){
+            while ( currentFood != null){
                 if (currentFood.next.id == idCanXoa) {
                     currentFood.next = currentFood.next.next;
                     return;
                 }
                 currentFood = currentFood.next ;
             }
-            System.out.println("Đã xóa thành công");
+            System.out.println("No find id.");
         }
 
         if (chose == 2 ) {
@@ -233,12 +233,96 @@ public class Inventory {
                 }
                 currentFood = currentFood.next ;
             }
-            System.out.println("Đã xóa thành công.");
+            System.out.println("No find name.");
         }
            
         if (chose == 3) {
+            System.out.print("Hãy nhập giá hàng cần xóa: ");
+			float giaCanXoa = input.nextInt();
+
             
+            if (headElectric.price == giaCanXoa) {
+                headElectric = headElectric.next ;
+                return ;
+            }
+             
+            if (headCrockerySet.price == giaCanXoa) {
+                headCrockerySet = headCrockerySet.next ;
+                return ;
+            }
+    
+            if (headFood.price == giaCanXoa) {
+                headFood = headFood.next ;
+                return ;
+            }
+
+            Electric currentElectric = headElectric ;
+            CrockerySet currentCrockerySet = headCrockerySet;
+            Food currentFood = headFood ;
+
+            while (currentElectric != null) {
+                if (currentElectric.next.price == giaCanXoa) {
+                    currentElectric.next = currentElectric.next.next;
+                    return;
+                }
+                currentElectric = currentElectric.next ;
+            }
+
+            while ( currentCrockerySet.next != null){
+                if (currentCrockerySet.next.price == giaCanXoa) {
+                    currentCrockerySet.next = currentCrockerySet.next.next;
+                    return;
+                }
+                currentCrockerySet = currentCrockerySet.next ;
+            }
+
+            while ( currentFood != null){
+                if (currentFood.next.price == giaCanXoa) {
+                    currentFood.next = currentFood.next.next;
+                    return;
+                }
+                currentFood = currentFood.next ;
+            }
+            System.out.println("No find price.");
         }
     }
 
+    public void suaHang(Scanner input){
+        System.out.println("Muốn sửa hàng theo cách nào");
+        System.out.println("1) Theo ID  2)Theo tên   3)Theo giá");
+        System.out.println("-Lựa chọn : ");
+        int chose = input.nextInt();
+
+        if (chose == 1) {
+            System.out.print("Hãy nhập Id hàng cần sửa: ");
+			int idCanXoa = input.nextInt();
+
+            if (headElectric.id == idCanXoa) {
+                headElectric = headElectric.next ;
+                return ;
+            }
+
+            if (headCrockerySet.id == idCanXoa) {
+                headCrockerySet = headCrockerySet.next ;
+                return;
+            }
+
+            if (headFood.id == idCanXoa) {
+                headFood = headFood.next ;
+                return;
+            }
+
+            Electric curentElectric = headElectric ;
+            CrockerySet currentCrockerySet = headCrockerySet ;
+            Food currentFood = headFood ;
+
+            while ( curentElectric.next != null){
+                if (curentElectric.next.id == idCanXoa) {
+                    curentElectric.next = curentElectric.next.next;
+                    return;
+                }
+                curentElectric = curentElectric.next ;
+            }
+        }
+    }
 }
