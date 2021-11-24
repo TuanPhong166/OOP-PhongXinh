@@ -1,14 +1,15 @@
 package TieuLuan;
 
+
 import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
-
     static Scanner input = new Scanner(System.in);
     public static Inventory inventory = new Inventory();
 
     public static void main(String[] args) {
+
         Date a = new Date();
 
         Electric headE = new Electric(1,"Tủ lạnh", 2, a) ;
@@ -23,26 +24,42 @@ public class Main {
         headF.next = food1 ;
 
         
-        Electric electric2 = new Electric(4, "Tivi", 10, a);
+        Electric electric2 = new Electric(7, "Laptop", 10, a);
         electric1.next = electric2;
-        CrockerySet crockerySet2 = new CrockerySet(5, "Chén", 11, a) ;
+        CrockerySet crockerySet2 = new CrockerySet(8, "Chai", 11, a) ;
         crockerySet1.next = crockerySet2 ;
-        Food food2 = new Food(6, "Cua", 2, a);
+        Food food2 = new Food(9, "Pizza", 2, a);
         food1.next = food2 ;
 
-        Electric electric3 = new Electric(4, "Tivi", 10, a);
+        Electric electric3 = new Electric(10, "Tai Phone", 10, a);
         electric2.next = electric3;
-        CrockerySet crockerySet3 = new CrockerySet(5, "Chén", 11, a) ;
+        CrockerySet crockerySet3 = new CrockerySet(11, "Chậu", 11, a) ;
         crockerySet2.next = crockerySet3 ;
-        Food food3 = new Food(6, "Cua", 2, a);
+        Food food3 = new Food(12, "Tôm", 2, a);
         food2.next = food3 ;
 
-        Electric electric4 = new Electric(4, "Tivi", 10, a);
+        Electric electric4 = new Electric(13 , "Pin", 10, a);
         electric3.next = electric4;
-        CrockerySet crockerySet4 = new CrockerySet(5, "Chén", 11, a) ;
+        CrockerySet crockerySet4 = new CrockerySet(14, "Ly", 11, a) ;
         crockerySet3.next = crockerySet4 ;
-        Food food4 = new Food(6, "Cua", 2, a);
+        Food food4 = new Food(15, "Cá", 2, a);
         food3.next = food4 ;
+
+        Electric electric5 = new Electric(16 , "Điện Thoại", 10, a);
+        electric4.next = electric5;
+        CrockerySet crockerySet5 = new CrockerySet(17, "Bia", 11, a) ;
+        crockerySet4.next = crockerySet5 ;
+        Food food5 = new Food(18, "Gà", 2, a);
+        food4.next = food5 ;
+
+        Electric electric6 = new Electric(19 , "Quạt ", 10, a);
+        electric5.next = electric6;
+        CrockerySet crockerySet6 = new CrockerySet(20, "Kính", 11, a) ;
+        crockerySet5.next = crockerySet6 ;
+        Food food6 = new Food(21, "Cà chua", 2, a);
+        food5.next = food6 ;
+
+
 
 
 
@@ -98,6 +115,10 @@ public class Main {
                 System.out.println("1.>> Thêm hàng hóa.");
                 inventory.add(input);
                 break;
+            case 2:
+                System.out.println("2.>> Xóa hàng hóa.");
+                inventory.delecte(input);
+                break ;
             case 4:
                 System.out.println("4.>> In danh sách hàng hóa");
                 outPut(inventory);
@@ -109,7 +130,7 @@ public class Main {
         }while( key != 5);
 
     }
-    public static void clearScreen() { // HÀM XÓA MÀN HÌNH
+    public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
