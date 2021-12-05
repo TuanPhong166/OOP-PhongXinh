@@ -34,6 +34,10 @@ public class Food {
         date = new Date();
         
     }
+    public String GetName() {
+		System.out.println(name);
+		return name;
+	}
 
     
 }

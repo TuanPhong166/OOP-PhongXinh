@@ -1,12 +1,17 @@
 package TieuLuan;
 
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.text.ParseException;
 
 public class Inventory {
 
     CrockerySet headCrockerySet ;
     Food headFood;
     Electric headElectric;
+
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
 
     Inventory(){}
 
@@ -17,50 +22,51 @@ public class Inventory {
     }
     
     public void add(Scanner input){
-        System.out.println("Bạn muốn thêm loại hàng nào?");
-		System.out.print("1) Điện máy	2) Sành Sứ	3) Thực Phẩm ----> Lựa chọn: ");
+        System.out.println("What kind of goods would you like to add?");
+		System.out.print("1) Electric	2) Crockery	3) Food ");
+        System.out.print("- Enter the selection : ");
 		int chose  = input.nextInt();
         if(chose <= 3){
         
         if(chose == 1){
-            Electric current = headElectric ;
-            while(current != null){
-                if (current.next == null){
+            Electric currentElectriclectric = headElectric ;
+            while(currentElectriclectric != null){
+                if (currentElectriclectric.next == null){
                     Electric inventoryNew = new Electric() ;
                     inventoryNew.id = NhapId(input, chose);
                     inventoryNew.nhapThongTin(input);
-                    current.next = inventoryNew ;
+                    currentElectriclectric.next = inventoryNew ;
                     break ;
                 }
-                current = current.next;
+                currentElectriclectric = currentElectriclectric.next;
             }
         }
         
         if(chose == 2){
-            CrockerySet current = headCrockerySet ;
-            while(current != null){
-                if(current.next == null){
+            CrockerySet currentCrockerySet = headCrockerySet ;
+            while(currentCrockerySet != null){
+                if(currentCrockerySet.next == null){
                     CrockerySet inventoryNew = new CrockerySet() ;
                     inventoryNew.id = NhapId(input, chose);
                     inventoryNew.nhapThongTin(input);
-                    current.next = inventoryNew ;
+                    currentCrockerySet.next = inventoryNew ;
                     break ;
                 }
-                current = current.next;
+                currentCrockerySet = currentCrockerySet.next;
             }
         }
 
         if(chose == 3){
-            Food current = headFood ;
-            while(current != null){
-                if(current.next == null){
+            Food currentFood = headFood ;
+            while(currentFood != null){
+                if(currentFood.next == null){
                     Food inventoryNew = new Food() ;
                     inventoryNew.id = NhapId(input, chose);
                     inventoryNew.nhapThongTin(input);
-                    current.next = inventoryNew ;
+                    currentFood.next = inventoryNew ;
                     break ;
                 }
-                current = current.next;
+                currentFood = currentFood.next;
             }
         }
         }else 
@@ -108,11 +114,11 @@ public class Inventory {
     public void inThongTin(){
         CrockerySet currentCrockerySet = headCrockerySet;
         Food currentFood = headFood ;
-        Electric currentElectric = headElectric ;
+        Electric currentElectriclectric = headElectric ;
 
-        while(currentElectric != null){
-            currentElectric.inThongTin();
-            currentElectric=currentElectric.next;
+        while(currentElectriclectric != null){
+            currentElectriclectric.inThongTin();
+            currentElectriclectric=currentElectriclectric.next;
         }
 
         System.out.println();
@@ -206,16 +212,16 @@ public class Inventory {
                 return;
             }
 
-            Electric currentElectric = headElectric ;
+            Electric currentElectriclectric = headElectric ;
             CrockerySet currentCrockerySet = headCrockerySet;
             Food currentFood = headFood ;
 
-            while (currentElectric.next != null) {
-                if (currentElectric.next.name.equalsIgnoreCase(tenCanXoa)) {
-                    currentElectric.next =currentElectric.next.next ;
+            while (currentElectriclectric.next != null) {
+                if (currentElectriclectric.next.name.equalsIgnoreCase(tenCanXoa)) {
+                    currentElectriclectric.next =currentElectriclectric.next.next ;
                     return ;
                 }
-                currentElectric = currentElectric.next ;
+                currentElectriclectric = currentElectriclectric.next ;
             }
 
             while (currentCrockerySet.next != null) {
@@ -238,91 +244,157 @@ public class Inventory {
            
         if (chose == 3) {
             System.out.print("Hãy nhập giá hàng cần xóa: ");
-			float giaCanXoa = input.nextInt();
+			
 
-            
-            if (headElectric.price == giaCanXoa) {
-                headElectric = headElectric.next ;
-                return ;
-            }
-             
-            if (headCrockerySet.price == giaCanXoa) {
-                headCrockerySet = headCrockerySet.next ;
-                return ;
-            }
+           
+        }
+    }
     
-            if (headFood.price == giaCanXoa) {
-                headFood = headFood.next ;
-                return ;
-            }
+    public void timHangTheoLoai(Scanner input){
+        System.out.println("\nHãy nhập Loại hàng bạn muốn tìm");
+        System.out.print("1) Điện máy	2) Sành sứ	3) Thực phẩm ----> Lựa chọn: ");
+        int loaiHang = input.nextInt();
 
-            Electric currentElectric = headElectric ;
-            CrockerySet currentCrockerySet = headCrockerySet;
-            Food currentFood = headFood ;
-
-            while (currentElectric != null) {
-                if (currentElectric.next.price == giaCanXoa) {
-                    currentElectric.next = currentElectric.next.next;
-                    return;
-                }
-                currentElectric = currentElectric.next ;
+        if (loaiHang == 1) {
+            Electric cur = headElectric;
+            while (cur != null) {
+                cur.inThongTin();
+                cur = cur.next;
             }
-
-            while ( currentCrockerySet.next != null){
-                if (currentCrockerySet.next.price == giaCanXoa) {
-                    currentCrockerySet.next = currentCrockerySet.next.next;
-                    return;
-                }
-                currentCrockerySet = currentCrockerySet.next ;
+        }else if (loaiHang == 2) {
+            CrockerySet cur = headCrockerySet;
+            while (cur != null) {
+                cur.inThongTin();
+                cur = cur.next;
             }
-
-            while ( currentFood != null){
-                if (currentFood.next.price == giaCanXoa) {
-                    currentFood.next = currentFood.next.next;
-                    return;
-                }
-                currentFood = currentFood.next ;
+        }else if (loaiHang == 3) {
+            Food cur = headFood;
+            while (cur != null) {
+                cur.inThongTin();
+                cur = cur.next;
             }
-            System.out.println("No find price.");
         }
     }
 
-    public void suaHang(Scanner input){
-        System.out.println("Muốn sửa hàng theo cách nào");
-        System.out.println("1) Theo ID  2)Theo tên   3)Theo giá");
-        System.out.println("-Lựa chọn : ");
-        int chose = input.nextInt();
+    public void timHangTheoGia(Scanner input){
+        System.out.print("Hãy nhập khoảng giá của hàng bạn muốn tìm\nTừ: ");
+			float start = input.nextFloat();
+			System.out.print("Đến: ");
+			float end = input.nextFloat();
+			
+			Electric currentElectriclectric = headElectric;
+			CrockerySet currentCrockerySet = headCrockerySet;
+			Food currentFood = headFood;
+			
+			while (currentElectriclectric != null) {
+				if (currentElectriclectric.price >= start && currentElectriclectric.price <= end)
+					currentElectriclectric.inThongTin();
+				currentElectriclectric = currentElectriclectric.next;
+			}
+			System.out.println();
+			
+			while (currentCrockerySet != null) {
+				if (currentCrockerySet.price >= start && currentCrockerySet.price <= end)
+					currentCrockerySet.inThongTin();
+				currentCrockerySet = currentCrockerySet.next;
+			}
+			System.out.println();
+			
+			while (currentFood != null) {
+				if (currentFood.price >= start && currentFood.price <= end)
+					currentFood.inThongTin();
+				currentFood = currentFood.next;
+			}
+    }
 
-        if (chose == 1) {
-            System.out.print("Hãy nhập Id hàng cần sửa: ");
-			int idCanXoa = input.nextInt();
-
-            if (headElectric.id == idCanXoa) {
-                headElectric = headElectric.next ;
-                return ;
-            }
-
-            if (headCrockerySet.id == idCanXoa) {
-                headCrockerySet = headCrockerySet.next ;
-                return;
-            }
-
-            if (headFood.id == idCanXoa) {
-                headFood = headFood.next ;
-                return;
-            }
-
-            Electric curentElectric = headElectric ;
-            CrockerySet currentCrockerySet = headCrockerySet ;
-            Food currentFood = headFood ;
-
-            while ( curentElectric.next != null){
-                if (curentElectric.next.id == idCanXoa) {
-                    curentElectric.next = curentElectric.next.next;
-                    return;
-                }
-                curentElectric = curentElectric.next ;
-            }
+    public void timHangtheoNgay(Scanner input){
+        System.out.println("Hãy nhập khoảng ngày nhập kho sản phẩm bạn muốn tìm (dd-mm-yyyy)\nTừ ngày: ");
+        String date = input.nextLine();
+        Date startDate;
+        try {
+            startDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+            System.err.println("Bạn đã nhập sai mẫu ngày hãy chọn (Tìm hàng ở Menu và thao tác lại)");
+            return;
         }
+        
+        System.out.println("Đến ngày: ");
+        Date endDate;
+        try {
+            endDate = dateFormat.parse(date);
+        } catch (ParseException e) {
+            System.err.println("Bạn đã nhập sai mẫu ngày hãy chọn (Tìm hàng ở Menu và thao tác lại)");
+            return;
+        }
+        
+        Electric currentElectriclectric = headElectric;
+        while (currentElectriclectric != null) {
+            if (currentElectriclectric.date.compareTo(startDate) >= 0 && currentElectriclectric.date.compareTo(endDate) <= 0) 
+                currentElectriclectric.inThongTin();
+            
+            
+            currentElectriclectric = currentElectriclectric.next;
+        }
+        System.out.println();
+        CrockerySet currentCrockerySet = headCrockerySet;
+        while (currentCrockerySet != null) {
+            if (currentCrockerySet.date.compareTo(startDate) >= 0 && currentCrockerySet.date.compareTo(endDate) <= 0) 
+                currentCrockerySet.inThongTin();
+            
+            currentCrockerySet = currentCrockerySet.next;
+        }
+        System.out.println();
+        Food currentFood = headFood;
+        while (currentFood != null) {
+            if (currentFood.date.compareTo(startDate) >= 0 && currentFood.date.compareTo(endDate) <= 0) 
+                currentFood.inThongTin();
+            
+            currentFood = currentFood.next;
+        }
+    }
+    
+    public void thongKe(Scanner input){
+        int tongSLHang;
+		int tongSLDienMay = 0;
+		int tongSLSanhSu = 0;
+		int tongSLThucPham = 0;
+		
+		float tongGiaTri = 0;
+		float tongGiaTriDienMay = 0;
+		float tongGiaTriSanhSu = 0;
+		float tongGiaTriThucPham = 0;
+		
+		Electric currentElectric = headElectric;
+		CrockerySet currentCrockerySet = headCrockerySet;
+		Food currentFood = headFood;
+		
+		while (currentElectric != null) {
+			tongSLDienMay++;
+			tongGiaTriDienMay += currentElectric.price;
+			currentElectric = currentElectric.next;
+		}
+		
+		while (currentCrockerySet != null) {
+			tongSLSanhSu++;
+			tongGiaTriSanhSu += currentCrockerySet.price;
+			currentCrockerySet = currentCrockerySet.next;
+		}
+		
+		while (currentFood != null) {
+			tongSLThucPham++;
+			tongGiaTriThucPham += currentFood.price;
+			currentFood = currentFood.next;
+		}
+		
+		tongSLHang = tongSLDienMay + tongSLSanhSu + tongSLThucPham;
+		tongGiaTri = tongGiaTriDienMay + tongGiaTriSanhSu + tongGiaTriThucPham;
+		
+        System.out.println("Total quantity of goods in stock is : "+tongSLHang+ " products.");
+        System.out.println("Total value of inventory is: "+tongGiaTri+" VND.\n");
+
+        System.out.println("Electronics there are: " +tongSLDienMay+" products.");
+        System.out.println("Crockery there are: "+tongSLSanhSu+" products.");
+        System.out.println("Food there are: "+tongSLThucPham+" products.");
+		
     }
 }

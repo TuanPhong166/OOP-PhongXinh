@@ -35,5 +35,10 @@ public class Electric {
         
     }
 
+    public String GetName() {
+		System.out.println(name);
+		return name;
+	}
+
     
 }

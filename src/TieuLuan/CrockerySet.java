@@ -35,5 +35,10 @@ public class CrockerySet {
         
     }
 
+    public String GetName() {
+		System.out.println(name);
+		return name;
+	}
+
     
 }
