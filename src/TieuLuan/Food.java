@@ -27,9 +27,9 @@ public class Food {
 
     public void nhapThongTin(Scanner input){
         input.nextLine();
-        System.out.println("Nhập tên sản phẩm : ");
+        System.out.print("Nhập tên sản phẩm : ");
         name = input.nextLine();
-        System.out.println("Nhập vào giá sản phẩm : ");
+        System.out.print("Nhập vào giá sản phẩm : ");
         price = input.nextFloat();
         date = new Date();
         

@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
 
         Date a = new Date();
-
+        
         Electric headE = new Electric(1,"Fridge", 140000, a) ;
         CrockerySet headCS = new CrockerySet(2, "Plate", 25000, a);
         Food headF = new Food(3, "Apple", 45000, a) ;
@@ -165,15 +165,15 @@ public class Main {
 
             switch (key) {
                 case 1:
-                    System.out.println("Search by type of goods.");
+                    System.out.println("1.>>Search by type of goods.");
                     inventory.timHangTheoLoai(input);
                     break;
                 case 2:
-                    System.out.println("Search by price of goods.");
+                    System.out.println("2.>>Search by price of goods.");
                     inventory.timHangTheoGia(input);
                     break;
                 case 3:
-                    System.out.println("Search for goods by date entered.");
+                    System.out.println("3.>>Search for goods by date entered.");
                     inventory.timHangtheoNgay(input);
                 case 0:
                     break ;
