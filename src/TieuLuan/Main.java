@@ -158,7 +158,7 @@ public class Main {
             System.out.println("--------------   SEARCH MENU  -------------- ");
             System.out.println("|     1.>> Search by type of goods.         |");
             System.out.println("|     2.>> Search by price of goods.        |");
-            System.out.println("|     3.>>Search for goods by date entered. |");
+            System.out.println("|     3.>> Search for goods by date entered. |");
             System.out.println("|     0.>> Back to menu                     |");
             System.out.println("---------------------------------------------");
             System.out.print("- Enter the selection : ");

@@ -139,6 +139,7 @@ public class Inventory {
     public void delecte(Scanner input){
         System.out.println("How do you want to delete?");
 		System.out.print("1) Delete by Id	2) Delete by name	3) Delete by Price");
+        System.out.println("--- Your choice: ");
 		
 		int chose = input.nextInt();
 
@@ -363,7 +364,8 @@ public class Inventory {
     }
 
     public void searchByDate(Scanner input){
-        System.out.println("Hãy nhập khoảng ngày nhập kho sản phẩm bạn muốn tìm (dd-MM-yyyy)\nTừ ngày: ");
+        System.out.println("Please enter the date to enter the product you want to find (dd-MM-yyy)");
+            System.out.print("From Date: ");
 			input.nextLine();
 			String date = input.nextLine();
 			
@@ -373,17 +375,17 @@ public class Inventory {
 			try {
 				a = dateFormat.parse(date);
 			} catch (ParseException e) {
-				System.err.println("Bạn đã nhập sai mẫu ngày hãy chọn (Tìm hàng ở Menu và thao tác lại)");
+				System.out.println("You entered the wrong date pattern (dd-MM-yyy)");
 				return;
 			}
 			
-			System.out.println("Đến ngày: ");
+			System.out.print("To Date: ");
 			String date1 = input.nextLine();
 			Date b;
 			try {
 				b = dateFormat.parse(date1);
 			} catch (ParseException e) {
-				System.err.println("Bạn đã nhập sai mẫu ngày hãy chọn (Tìm hàng ở Menu và thao tác lại)");
+				System.out.println("You entered the wrong date pattern (dd-MM-yyy)");
 				return;
 			}
 			
