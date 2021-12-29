@@ -35,7 +35,7 @@ public class CrockerySet {
 
         } catch (Exception e) {
         }
-
+        Date a = date;
     }
 
     public void inThongTin(){

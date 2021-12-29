@@ -85,6 +85,8 @@ public class Main {
                 menuSreach();;
                 break;
             case 3:
+                menuSort();
+                break;
             case 4:
                 menuThongKe();
                 break ;
@@ -189,5 +191,8 @@ public class Main {
         inventory.thongKe(input);
     }
    
+    static void menuSort(){
+
+    }
    
 }

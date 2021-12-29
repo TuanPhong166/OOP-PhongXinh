@@ -15,6 +15,7 @@ public class Electric {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy"); 
 
     Electric next ;
+    
 
     Electric(){}
 
