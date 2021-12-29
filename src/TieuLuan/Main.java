@@ -112,7 +112,7 @@ public class Main {
         System.out.println("------ ----- GOODS UPDATE  ----------- ");
         System.out.println("|   1.>> Add goods.                   |");
         System.out.println("|   2.>> Delete goods.                |");
-        System.out.println("|   3.>> Fix goods.                   |"); // chưa làm
+        System.out.println("|   3.>> Fix goods.                   |"); 
         System.out.println("|   4.>> Print product list.          |");
         System.out.println("|   0.>> Back to menu                 |");
         System.out.println("---------------------------------------");
@@ -129,8 +129,8 @@ public class Main {
                 inventory.delecte(input);
                 break ;
             case 3: 
-                System.out.println("3.>> Fix goods."); // chưa làm
-                inventory.delecte(input);
+                System.out.println("3.>> Fix goods.");
+                inventory.fixByType(input);
                 break ;
             case 4:
                 System.out.println("4.>> Print product list.");
@@ -168,15 +168,15 @@ public class Main {
             switch (key) {
                 case 1:
                     System.out.println("1.>>Search by type of goods.");
-                    inventory.timHangTheoLoai(input);
+                    inventory.searchByType(input);
                     break;
                 case 2:
                     System.out.println("2.>>Search by price of goods.");
-                    inventory.timHangTheoGia(input);
+                    inventory.searchByPrice(input);
                     break;
                 case 3:
                     System.out.println("3.>>Search for goods by date entered.");
-                    inventory.timHangtheoNgay(input);
+                    inventory.searchByDate(input);
                 case 0:
                     break ;
                 default:

@@ -50,6 +50,8 @@ public class Food {
         name = input.nextLine();
         System.out.print("Nhập vào giá sản phẩm : ");
         price = input.nextFloat();
+        System.out.print("Nhập vào số lượng tồn kho : ");
+        inventory = input.nextInt();
         date = new Date();
         
     }
