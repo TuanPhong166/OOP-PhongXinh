@@ -308,17 +308,20 @@ public class Inventory {
     }
 
     public void timHangtheoNgay(Scanner input){
-        System.out.println("Hãy nhập khoảng ngày nhập kho sản phẩm bạn muốn tìm (dd-mm-yyyy)\nTừ ngày: ");
+        System.out.println("Hay nhap khoang ngay nhap kho ban muon tim (dd-mm-yyyy)\ntu ngay: ");
+        input.nextLine();
         String date = input.nextLine();
         Date startDate;
         try {
             startDate = dateFormat.parse(date);
         } catch (ParseException e) {
-            System.err.println("Bạn đã nhập sai mẫu ngày hãy chọn (Tìm hàng ở Menu và thao tác lại)");
+            System.err.println("Ban da nhap sai mau ngay  (tim hang o menu va thao tac lai)");
             return;
         }
         
-        System.out.println("Đến ngày: ");
+        System.out.println("den ngay: ");
+        input.nextLine();
+        date = input.nextLine();
         Date endDate;
         try {
             endDate = dateFormat.parse(date);

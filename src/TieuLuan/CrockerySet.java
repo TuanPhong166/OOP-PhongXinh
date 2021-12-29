@@ -2,6 +2,7 @@ package TieuLuan;
 
 import java.util.Date;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
 
 public class CrockerySet {
 
@@ -9,20 +10,37 @@ public class CrockerySet {
     String name  ;
     float price ;
     Date date ;
+    int inventory ;
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy"); 
 
     CrockerySet next ;
 
     CrockerySet(){}
 
-    CrockerySet(int _id , String _name , float _price , Date _date){
+    CrockerySet(int _id , String _name , float _price ,int _inventory , Date _date){
         id = _id ;
         name = _name ;
         price = _price ;
+        inventory = _inventory ;
         date = _date;
     }
 
+    CrockerySet(int _id , String _name , float _price , int _inventory, String ngay){
+        id = _id ;
+        name = _name ;
+        price = _price ;
+        inventory=_inventory ;
+        try {
+            date = simpleDateFormat.parse(ngay);
+
+        } catch (Exception e) {
+        }
+
+    }
+
     public void inThongTin(){
-        System.out.println("Commodities : CrockerySet"+". Product's name : "+name+". ID : "+id+". Price : "+price+". Input Day : "+date);
+        System.out.println("---");
+        System.out.println("Commodities: CrockerySet"+". Product's name : "+name+". ID : "+id+". Price : "+price+". Inventory: "+inventory+". Input Day : "+date);
     }
 
     public void nhapThongTin(Scanner input){
@@ -39,6 +57,6 @@ public class CrockerySet {
 		System.out.println(name);
 		return name;
 	}
-
     
+ 
 }

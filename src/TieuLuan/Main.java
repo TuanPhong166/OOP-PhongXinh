@@ -1,7 +1,6 @@
 package TieuLuan;
 
 
-import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
@@ -10,56 +9,54 @@ public class Main {
      MONG THẦY THÔNG CẢM. EM CẢM ƠN*/
     static Scanner input = new Scanner(System.in);
     public static Inventory inventory = new Inventory();
-    
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-        Date a = new Date();
         
-        Electric headE = new Electric(1,"Fridge", 140000, a) ;
-        CrockerySet headCS = new CrockerySet(2, "Plate", 25000, a);
-        Food headF = new Food(3, "Apple", 45000, a) ;
+        Electric headE = new Electric(1,"Fridge", 5300, 9, "12/01/2019") ; 
+        CrockerySet headCS = new CrockerySet(2, "Plate", 250, 15, "01/02/2020"); 
+        Food headF = new Food(3, "Apple", 45,500, "02/09/2021") ; 
 
-        Electric electric1 = new Electric(4, "Televison", 5999999, a);
+        Electric electric1 = new Electric(4, "Televison", 5999,120,"13/07/2020"); 
         headE.next = electric1;
-        CrockerySet crockerySet1 = new CrockerySet(5, "Bowl", 22500, a) ;
+        CrockerySet crockerySet1 = new CrockerySet(5, "Bowl", 220, 23, "02/03/2019") ;
         headCS.next = crockerySet1 ;
-        Food food1 = new Food(6, "Crab", 350000, a);
+        Food food1 = new Food(6, "Crab", 3500,30, "14/07/2020");
         headF.next = food1 ;
 
         
-        Electric electric2 = new Electric(7, "Laptop", 12999000, a);
+        Electric electric2 = new Electric(7, "Laptop", 1290, 6 , "15/07/2019");
         electric1.next = electric2;
-        CrockerySet crockerySet2 = new CrockerySet(8, "Pots", 11, a) ;
+        CrockerySet crockerySet2 = new CrockerySet(8, "Pots", 180 ,58, "03/04/2021") ;
         crockerySet1.next = crockerySet2 ;
-        Food food2 = new Food(9, "Pizza", 129000, a);
+        Food food2 = new Food(9, "Pizza", 80, 123 , "16/07/2020");
         food1.next = food2 ;
 
-        Electric electric3 = new Electric(10, "Earphone", 10, a);
+        Electric electric3 = new Electric(10, "Earphone", 100, 13, "16/07/2021");
         electric2.next = electric3;
-        CrockerySet crockerySet3 = new CrockerySet(11, "Teapot", 11, a) ;
+        CrockerySet crockerySet3 = new CrockerySet(11, "Teapot", 780 , 31 , "10/11/2021") ;
         crockerySet2.next = crockerySet3 ;
-        Food food3 = new Food(12, "Loster", 2, a);
+        Food food3 = new Food(12, "Loster", 237 , 32, "29/12/2021");
         food2.next = food3 ;
 
-        Electric electric4 = new Electric(13 , "Pin", 10, a);
+        Electric electric4 = new Electric(13 , "Pin", 10, 80, "14/06/2020");
         electric3.next = electric4;
-        CrockerySet crockerySet4 = new CrockerySet(14, "Glass", 11, a) ;
+        CrockerySet crockerySet4 = new CrockerySet(14, "Glass", 340, 10 , "22/08/2020") ;
         crockerySet3.next = crockerySet4 ;
-        Food food4 = new Food(15, "Fish", 2, a);
+        Food food4 = new Food(15, "Fish", 50, 13 ,"30/12/2021");
         food3.next = food4 ;
 
-        Electric electric5 = new Electric(16 , "Telephone", 10, a);
+        Electric electric5 = new Electric(16 , "Telephone", 1500 , 4 , "20/11/2021");
         electric4.next = electric5;
-        CrockerySet crockerySet5 = new CrockerySet(17, "Ceramics", 11, a) ;
+        CrockerySet crockerySet5 = new CrockerySet(17, "Ceramics", 130,90, "16/06/2020") ;
         crockerySet4.next = crockerySet5 ;
-        Food food5 = new Food(18, "Chicken", 2, a);
+        Food food5 = new Food(18, "Chicken", 76 , 50 , "20/12/2021");
         food4.next = food5 ;
 
-        Electric electric6 = new Electric(19 , "Fan", 3200000, a);
+        Electric electric6 = new Electric(19 , "Fan", 390, 45, "21/11/2019");
         electric5.next = electric6;
-        CrockerySet crockerySet6 = new CrockerySet(20, "Porcelain table", 120000, a) ;
+        CrockerySet crockerySet6 = new CrockerySet(20, "Porcelain table", 450,12, "17/06/2019") ;
         crockerySet5.next = crockerySet6 ;
-        Food food6 = new Food(21, "Tomato", 9000, a);
+        Food food6 = new Food(21, "Tomato", 9, 34, "29/12/2021");
         food5.next = food6 ;
 
         inventory.headCrockerySet = headCS ;
@@ -73,6 +70,7 @@ public class Main {
         System.out.println("|  2.>> Search Goods.              |");
         System.out.println("|  3,>> Sắp xếp hàng hóa           |"); // chưa làm
         System.out.println("|  4.>> Statistical Goods.         |");
+        System.out.println("|  5.>> Print product list.        |");
         System.out.println("|  0.>> Exit the program.          |");
         System.out.println("------------------------------------");
         System.err.print("- Enter the selection : ");
@@ -90,7 +88,9 @@ public class Main {
             case 4:
                 menuThongKe();
                 break ;
-                
+            case 5:
+                inventory.inThongTin();
+                break; 
             case 0 :
                 System.out.println("Exit the program.");
                 System.out.println("Thank you for using the program!!");
