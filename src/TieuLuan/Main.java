@@ -68,7 +68,7 @@ public class Main {
         System.out.println("--------------- MENU ---------------");
         System.out.println("|  1.>> Update Goods.              |");
         System.out.println("|  2.>> Search Goods.              |");
-        System.out.println("|  3,>> Sắp xếp hàng hóa           |"); // chưa làm
+        System.out.println("|  3,>> Arrange goods              |"); // chưa làm
         System.out.println("|  4.>> Statistical Goods.         |");
         System.out.println("|  5.>> Print product list.        |");
         System.out.println("|  0.>> Exit the program.          |");
@@ -155,12 +155,12 @@ public class Main {
         int key ;
         do{
             System.out.println();
-            System.out.println("-----------   SEARCH MENU  ----------- ");
-            System.out.println("|   1.>> Theo loại hàng hóa.          |");
-            System.out.println("|   2.>> Theo giá hàng hóa.           |");
-            System.out.println("|   3.>> Theo ngày nhập               |");
-            System.out.println("|   0.>> Quay về menu                 |");
-            System.out.println("---------------------------------------");
+            System.out.println("--------------   SEARCH MENU  -------------- ");
+            System.out.println("|     1.>> Search by type of goods.         |");
+            System.out.println("|     2.>> Search by price of goods.        |");
+            System.out.println("|     3.>>Search for goods by date entered. |");
+            System.out.println("|     0.>> Back to menu                     |");
+            System.out.println("---------------------------------------------");
             System.out.print("- Enter the selection : ");
             key = input.nextInt();
             System.out.println();

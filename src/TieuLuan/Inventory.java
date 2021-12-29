@@ -34,7 +34,7 @@ public class Inventory {
                 if (currentElectriclectric.next == null){
                     Electric inventoryNew = new Electric() ;
                     inventoryNew.id = NhapId(input, chose);
-                    inventoryNew.nhapThongTin(input);
+                    inventoryNew.add(input);
                     currentElectriclectric.next = inventoryNew ;
                     break ;
                 }
@@ -48,7 +48,7 @@ public class Inventory {
                 if(currentCrockerySet.next == null){
                     CrockerySet inventoryNew = new CrockerySet() ;
                     inventoryNew.id = NhapId(input, chose);
-                    inventoryNew.nhapThongTin(input);
+                    inventoryNew.add(input);
                     currentCrockerySet.next = inventoryNew ;
                     break ;
                 }
@@ -62,7 +62,7 @@ public class Inventory {
                 if(currentFood.next == null){
                     Food inventoryNew = new Food() ;
                     inventoryNew.id = NhapId(input, chose);
-                    inventoryNew.nhapThongTin(input);
+                    inventoryNew.add(input);
                     currentFood.next = inventoryNew ;
                     break ;
                 }
@@ -70,19 +70,19 @@ public class Inventory {
             }
         }
         }else 
-             System.out.println("Bạn chọn sai r");
+             System.out.println("You chose wrong.");
 
     }
 
     public int NhapId(Scanner input , int chose){
-        System.out.print("Hãy nhập ID hàng: ");
+        System.out.print("Please enter item id: ");
 		int id = input.nextInt();
 
         if(chose == 1){
             Electric current = headElectric ;
             while(current != null){
                if(current.id == id){
-                System.out.println("Id này đã tồn tại");
+                System.out.println("Id already exists.");
                 return NhapId(input, chose);
                }
                current = current.next;
@@ -92,7 +92,7 @@ public class Inventory {
             CrockerySet current = headCrockerySet ;
             while(current != null){
                if(current.id == id){
-                System.out.println("Id này đã tồn tại");
+                System.out.println("Id already exists.");
                 return NhapId(input, chose);
                }
                current = current.next;
@@ -102,7 +102,7 @@ public class Inventory {
             Food current = headFood ;
             while(current != null){
                if(current.id == id){
-                System.out.println("Id này đã tồn tại");
+                System.out.println("Id already exists.");
                 return NhapId(input, chose);
                }
                current = current.next;
@@ -137,13 +137,13 @@ public class Inventory {
 
     }
     public void delecte(Scanner input){
-        System.out.println("Muốn xóa theo cách nào");
-		System.out.print("1) Theo Id	2) Theo tên	3) Theo giá ----> Lựa chọn: ");
+        System.out.println("How do you want to delete?");
+		System.out.print("1) Delete by Id	2) Delete by name	3) Delete by Price");
 		
 		int chose = input.nextInt();
 
         if (chose == 1) {
-            System.out.print("Hãy nhập Id hàng cần xóa: ");
+            System.out.print("---Enter item id to delete: ");
 			int idCanXoa = input.nextInt();
 
             if (headElectric.id == idCanXoa) {
@@ -195,7 +195,7 @@ public class Inventory {
         }
 
         if (chose == 2 ) {
-            System.out.print("Hãy nhập tên hàng cần xóa: ");
+            System.out.print("---Enter item name to delete: ");
 			input.nextLine();
 			String tenCanXoa = input.nextLine();
 
@@ -479,7 +479,7 @@ public class Inventory {
     }
 
     public void fixByType(Scanner input){
-        System.out.print("Hãy nhập id hàng bạn cần sửa: "); 
+        System.out.print("Enter the id of the item you want to fix: "); 
         int id = input.nextInt();
 			Electric currentElectric = headElectric;
 			CrockerySet currentCrockerySet = headCrockerySet;
@@ -488,11 +488,11 @@ public class Inventory {
 			while (currentElectric != null) {
 				if (currentElectric.id == id) {
 					currentElectric.inThongTin();
-					System.out.println("Hãy sửa lại thông tin");
-					System.out.print("Tên hàng: "); input.nextLine(); currentElectric.name = input.nextLine();
-					System.out.print("ID hàng: ");	currentElectric.id = input.nextInt();
-					System.out.print("Giá hàng: "); currentElectric.price = input.nextFloat();
-					System.out.print("Ngày nhập hàng theo mẫu (dd-MM-yyyy):");
+					System.out.println("Please correct the information.");
+					System.out.print("Product Name: "); input.nextLine(); currentElectric.name = input.nextLine();
+					System.out.print("ID: ");	currentElectric.id = input.nextInt();
+					System.out.print("Product Price: "); currentElectric.price = input.nextFloat();
+					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
 					
 					Date b = null;
 					input.nextLine();
@@ -503,6 +503,7 @@ public class Inventory {
 						e.printStackTrace();
 					}
 					currentElectric.date = b;
+                    System.out.println("---Successful repair");
 					return;
 				}
 				currentElectric = currentElectric.next;
@@ -511,11 +512,11 @@ public class Inventory {
 			while (currentCrockerySet != null) {
 				if (currentCrockerySet.id == id) {
 					currentCrockerySet.inThongTin();
-					System.out.println("Hãy sửa lại thông tin");
-					System.out.print("Tên hàng: "); input.nextLine(); currentCrockerySet.name = input.nextLine();
-					System.out.print("ID hàng: ");	currentCrockerySet.id = input.nextInt();
-					System.out.print("Giá hàng: "); currentCrockerySet.price = input.nextFloat();
-					System.out.print("Ngày nhập hàng theo mẫu (dd-MM-yyyy):");
+					System.out.println("Please correct the information.");
+					System.out.print("Product Name: "); input.nextLine(); currentCrockerySet.name = input.nextLine();
+					System.out.print("ID: ");	currentCrockerySet.id = input.nextInt();
+					System.out.print("Product Price: "); currentCrockerySet.price = input.nextFloat();
+					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
 					
 					Date b = null;
 					input.nextLine();
@@ -526,6 +527,7 @@ public class Inventory {
 						e.printStackTrace();
 					}
 					currentCrockerySet.date = b;
+                    System.out.println("---Successful repair");
 					return;
 				}
 				currentCrockerySet = currentCrockerySet.next;
@@ -534,11 +536,11 @@ public class Inventory {
 			while (currentFood != null) {
 				if (currentFood.id == id) {
 					currentFood.inThongTin();
-					System.out.println("Hãy sửa lại thông tin");
-					System.out.print("Tên hàng: "); input.nextLine(); currentFood.name = input.nextLine();
-					System.out.print("ID hàng: ");	currentFood.id = input.nextInt();
-					System.out.print("Giá hàng: "); currentFood.price = input.nextFloat();
-					System.out.print("Ngày nhập hàng theo mẫu: ");
+					System.out.println("Please correct the information.");
+					System.out.print("Product Name: "); input.nextLine(); currentFood.name = input.nextLine();
+					System.out.print("ID: ");	currentFood.id = input.nextInt();
+					System.out.print("Product Price: "); currentFood.price = input.nextFloat();
+					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
 					
 					Date b = null;
 					input.nextLine();
@@ -549,6 +551,7 @@ public class Inventory {
 						e.printStackTrace();
 					}
 					currentFood.date= b;
+                    System.out.println("---Successful repair");
 					return;
 				}
 				currentFood = currentFood.next;

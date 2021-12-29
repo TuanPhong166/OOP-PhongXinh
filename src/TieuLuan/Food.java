@@ -44,21 +44,17 @@ public class Food {
         System.out.println("Commodities : Food"+". Product's name : "+name+". ID : "+id+". Price : "+price+" Inventory: "+inventory+". Input Day : "+date);
     }
 
-    public void nhapThongTin(Scanner input){
+    public void add(Scanner input){
         input.nextLine();
-        System.out.print("Nhập tên sản phẩm : ");
+        System.out.print("Enter product name : ");
         name = input.nextLine();
-        System.out.print("Nhập vào giá sản phẩm : ");
+        System.out.print("Enter product price : ");
         price = input.nextFloat();
-        System.out.print("Nhập vào số lượng tồn kho : ");
+        System.out.print("Enter inventory quantity : ");
         inventory = input.nextInt();
         date = new Date();
         
     }
-    public String GetName() {
-		System.out.println(name);
-		return name;
-	}
 
     
 }
