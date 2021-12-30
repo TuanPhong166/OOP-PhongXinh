@@ -12,7 +12,7 @@ public class Food {
     Date date ;
     int inventory;
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy"); 
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
 
     Food next ;
 

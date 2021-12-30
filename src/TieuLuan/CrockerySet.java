@@ -11,7 +11,7 @@ public class CrockerySet {
     float price ;
     Date date ;
     int inventory ;
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy"); 
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
 
     CrockerySet next ;
 

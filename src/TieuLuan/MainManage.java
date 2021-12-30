@@ -3,10 +3,7 @@ package TieuLuan;
 
 import java.util.Scanner;
 
-public class Main {
-    /* VÌ LÝ DO MÁY TÍNH HƯ ĐỘT NGỘT LỖI FONT TIẾNG VIỆT KHÔNG CÒN CÀI UTF8 ĐƯỢC 
-     NÊN EM CHUYỂN SANG TIẾNG ANH ĐỂ HOÀN THÀNH BÀI TIỂU LUẬN
-     MONG THẦY THÔNG CẢM. EM CẢM ƠN*/
+public class MainManage {
     static Scanner input = new Scanner(System.in);
     public static Inventory inventory = new Inventory();
         public static void main(String[] args) {
@@ -65,10 +62,11 @@ public class Main {
         clearScreen();
         int key ;
         do{
+        System.out.println();
         System.out.println("--------------- MENU ---------------");
         System.out.println("|  1.>> Update Goods.              |");
         System.out.println("|  2.>> Search Goods.              |");
-        System.out.println("|  3,>> Arrange goods              |"); // chưa làm
+        System.out.println("|  3,>> Arrange goods              |"); 
         System.out.println("|  4.>> Statistical Goods.         |");
         System.out.println("|  5.>> Print product list.        |");
         System.out.println("|  0.>> Exit the program.          |");
@@ -188,6 +186,7 @@ public class Main {
     }
 
     static void menuThongKe(){
+        System.out.println("4.>> Statistical Goods. ");
         inventory.thongKe(input);
     }
    

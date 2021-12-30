@@ -12,6 +12,7 @@ public class Inventory {
     Electric headElectric;
 
     SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    
 
     Inventory(){}
 
@@ -23,22 +24,27 @@ public class Inventory {
     
     public void add(Scanner input){
         System.out.println("What kind of goods would you like to add?");
-		System.out.print("1) Electric	2) Crockery	3) Food ");
+        System.out.println("-----------------------------------------");
+        System.out.println("|        1.>> Electric                  |");
+        System.out.println("|        2.>> Crockery                  |");
+        System.out.println("|        3.>> Food                      |");
+        System.out.println("-----------------------------------------");
         System.out.print("- Enter the selection : ");
 		int chose  = input.nextInt();
         if(chose <= 3){
         
         if(chose == 1){
-            Electric currentElectriclectric = headElectric ;
-            while(currentElectriclectric != null){
-                if (currentElectriclectric.next == null){
+            Electric currentElectric = headElectric ;
+            while(currentElectric != null){
+                if (currentElectric.next == null){
                     Electric inventoryNew = new Electric() ;
-                    inventoryNew.id = NhapId(input, chose);
+                    inventoryNew.id = testId(input, chose);
                     inventoryNew.add(input);
-                    currentElectriclectric.next = inventoryNew ;
+                    currentElectric.next = inventoryNew ;
+                    System.out.println("Sucessfull Add");
                     break ;
                 }
-                currentElectriclectric = currentElectriclectric.next;
+                currentElectric = currentElectric.next;
             }
         }
         
@@ -47,9 +53,10 @@ public class Inventory {
             while(currentCrockerySet != null){
                 if(currentCrockerySet.next == null){
                     CrockerySet inventoryNew = new CrockerySet() ;
-                    inventoryNew.id = NhapId(input, chose);
+                    inventoryNew.id = testId(input, chose);
                     inventoryNew.add(input);
                     currentCrockerySet.next = inventoryNew ;
+                    System.out.println("Sucessfull Add");
                     break ;
                 }
                 currentCrockerySet = currentCrockerySet.next;
@@ -61,9 +68,10 @@ public class Inventory {
             while(currentFood != null){
                 if(currentFood.next == null){
                     Food inventoryNew = new Food() ;
-                    inventoryNew.id = NhapId(input, chose);
+                    inventoryNew.id = testId(input, chose);
                     inventoryNew.add(input);
                     currentFood.next = inventoryNew ;
+                    System.out.println("Sucessfull Add");
                     break ;
                 }
                 currentFood = currentFood.next;
@@ -74,7 +82,7 @@ public class Inventory {
 
     }
 
-    public int NhapId(Scanner input , int chose){
+    public int testId(Scanner input , int chose){ // kiểm tra xem id đã tồn tại?
         System.out.print("Please enter item id: ");
 		int id = input.nextInt();
 
@@ -83,7 +91,7 @@ public class Inventory {
             while(current != null){
                if(current.id == id){
                 System.out.println("Id already exists.");
-                return NhapId(input, chose);
+                return testId(input, chose);
                }
                current = current.next;
            }
@@ -93,7 +101,7 @@ public class Inventory {
             while(current != null){
                if(current.id == id){
                 System.out.println("Id already exists.");
-                return NhapId(input, chose);
+                return testId(input, chose);
                }
                current = current.next;
            }
@@ -103,7 +111,7 @@ public class Inventory {
             while(current != null){
                if(current.id == id){
                 System.out.println("Id already exists.");
-                return NhapId(input, chose);
+                return testId(input, chose);
                }
                current = current.next;
            }
@@ -114,11 +122,11 @@ public class Inventory {
     public void inThongTin(){
         CrockerySet currentCrockerySet = headCrockerySet;
         Food currentFood = headFood ;
-        Electric currentElectriclectric = headElectric ;
+        Electric currentElectric = headElectric ;
 
-        while(currentElectriclectric != null){
-            currentElectriclectric.inThongTin();
-            currentElectriclectric=currentElectriclectric.next;
+        while(currentElectric != null){
+            currentElectric.inThongTin();
+            currentElectric=currentElectric.next;
         }
 
         System.out.println();
@@ -138,12 +146,17 @@ public class Inventory {
     }
     public void delecte(Scanner input){
         System.out.println("How do you want to delete?");
-		System.out.print("1) Delete by Id	2) Delete by name	3) Delete by Price");
-        System.out.println("--- Your choice: ");
+        System.out.println("-------------------------");
+        System.out.println("|  1.>> Delete by Id    |");
+        System.out.println("|  2.>> Delete by name  |");
+        System.out.println("|  3.>> Delete by Price |");
+        System.out.println("-------------------------");
+        System.out.print("--- Your choice: ");
 		
 		int chose = input.nextInt();
 
         if (chose == 1) {
+            System.out.println("1.>> Delete by Id.");
             System.out.print("---Enter item id to delete: ");
 			int idCanXoa = input.nextInt();
 
@@ -196,6 +209,7 @@ public class Inventory {
         }
 
         if (chose == 2 ) {
+            System.out.println("2.>> Delete by name.");
             System.out.print("---Enter item name to delete: ");
 			input.nextLine();
 			String tenCanXoa = input.nextLine();
@@ -215,17 +229,17 @@ public class Inventory {
                 return;
             }
 
-            Electric currentElectriclectric = headElectric ;
+            Electric currentElectric = headElectric ;
             CrockerySet currentCrockerySet = headCrockerySet;
             Food currentFood = headFood ;
 
-            while (currentElectriclectric.next != null) {
-                if (currentElectriclectric.next.name.equalsIgnoreCase(tenCanXoa)) {
-                    currentElectriclectric.next =currentElectriclectric.next.next ;
+            while (currentElectric.next != null) {
+                if (currentElectric.next.name.equalsIgnoreCase(tenCanXoa)) {
+                    currentElectric.next =currentElectric.next.next ;
                     System.out.println("--- Successful delete. ---");
                     return ;
                 }
-                currentElectriclectric = currentElectriclectric.next ;
+                currentElectric = currentElectric.next ;
             }
 
             while (currentCrockerySet.next != null) {
@@ -249,6 +263,7 @@ public class Inventory {
         }
            
         if (chose == 3) {
+            System.out.println("3.>> Delete by price.");
             System.out.print("---Enter the price of the item to be deleted: ");
 			int giaCanXoa = input.nextInt();
 
@@ -338,14 +353,14 @@ public class Inventory {
 			System.out.print("To: ");
 			float end = input.nextFloat();
 			
-			Electric currentElectriclectric = headElectric;
+			Electric currentElectric = headElectric;
 			CrockerySet currentCrockerySet = headCrockerySet;
 			Food currentFood = headFood;
 			
-			while (currentElectriclectric != null) {
-				if (currentElectriclectric.price >= start && currentElectriclectric.price <= end)
-					currentElectriclectric.inThongTin();
-				currentElectriclectric = currentElectriclectric.next;
+			while (currentElectric != null) {
+				if (currentElectric.price >= start && currentElectric.price <= end)
+					currentElectric.inThongTin();
+				currentElectric = currentElectric.next;
 			}
 			System.out.println();
 			
@@ -369,7 +384,7 @@ public class Inventory {
 			input.nextLine();
 			String date = input.nextLine();
 			
-			int count = 0;
+			int run = 0;
 			
 			Date a;
 			try {
@@ -392,7 +407,7 @@ public class Inventory {
 			Electric currentElectric = headElectric;
 			while (currentElectric != null) {
 				if (currentElectric.date.compareTo(a) >= 0 && currentElectric.date.compareTo(b) <= 0) {
-					count++;
+					run++;
 					currentElectric.inThongTin();
 				}
 				
@@ -400,30 +415,30 @@ public class Inventory {
 				currentElectric = currentElectric.next;
 			}
 			
-			if (count != 0) {
-				count = 0;
+			if (run != 0) {
+				run = 0;
 				System.out.println();
 			}
 			
 			CrockerySet currentCrockerySet = headCrockerySet;
 			while (currentCrockerySet != null) {
 				if (currentCrockerySet.date.compareTo(a) >= 0 && currentCrockerySet.date.compareTo(b) <= 0) {
-					count++;
+					run++;
 					currentCrockerySet.inThongTin();
 				}
 				
 				currentCrockerySet = currentCrockerySet.next;
 			}
 			
-			if (count != 0) {
-				count = 0;
+			if (run != 0) {
+				run = 0;
 				System.out.println();
 			}
 			
 			Food currentFood = headFood;
 			while (currentFood != null) {
 				if (currentFood.date.compareTo(a) >= 0 && currentFood.date.compareTo(b) <= 0) {
-					count++;
+					run++;
 					currentFood.inThongTin();
 				}
 				
@@ -433,46 +448,46 @@ public class Inventory {
     
     public void thongKe(Scanner input){
         int tongSLHang;
-		int tongSLDienMay = 0;
-		int tongSLSanhSu = 0;
-		int tongSLThucPham = 0;
+		int sumE = 0;
+		int sumC = 0;
+		int sumF = 0;
 		
-		float tongGiaTri = 0;
-		float tongGiaTriDienMay = 0;
-		float tongGiaTriSanhSu = 0;
-		float tongGiaTriThucPham = 0;
+		float sumValue = 0;
+		float sumValueE = 0;
+		float sumValueC = 0;
+		float sumValueF = 0;
 		
 		Electric currentElectric = headElectric;
 		CrockerySet currentCrockerySet = headCrockerySet;
 		Food currentFood = headFood;
 		
 		while (currentElectric != null) {
-			tongSLDienMay++;
-			tongGiaTriDienMay += currentElectric.price;
+			sumE++;
+			sumValueE += currentElectric.price;
 			currentElectric = currentElectric.next;
 		}
 		
 		while (currentCrockerySet != null) {
-			tongSLSanhSu++;
-			tongGiaTriSanhSu += currentCrockerySet.price;
+			sumC++;
+			sumValueC += currentCrockerySet.price;
 			currentCrockerySet = currentCrockerySet.next;
 		}
 		
 		while (currentFood != null) {
-			tongSLThucPham++;
-			tongGiaTriThucPham += currentFood.price;
+			sumF++;
+			sumValueF += currentFood.price;
 			currentFood = currentFood.next;
 		}
 		
-		tongSLHang = tongSLDienMay + tongSLSanhSu + tongSLThucPham; 
-		tongGiaTri = tongGiaTriDienMay + tongGiaTriSanhSu + tongGiaTriThucPham;
+		tongSLHang = sumE + sumC + sumF; 
+		sumValue = sumValueE + sumValueC + sumValueF;
 		
         System.out.println("Total quantity of goods in stock is : "+tongSLHang+ " products.");
-        System.out.println("Total value of inventory is: "+tongGiaTri+" VND.\n");
+        System.out.println("Total value of inventory is: "+sumValue+" VND.\n");
 
-        System.out.println("Electronics there are: " +tongSLDienMay+" products.");
-        System.out.println("Crockery there are: "+tongSLSanhSu+" products.");
-        System.out.println("Food there are: "+tongSLThucPham+" products.");
+        System.out.println("Electronics there are: " +sumE+" products.");
+        System.out.println("Crockery there are: "+sumC+" products.");
+        System.out.println("Food there are: "+sumF+" products.");
 		
     }
 
@@ -491,9 +506,14 @@ public class Inventory {
 				if (currentElectric.id == id) {
 					currentElectric.inThongTin();
 					System.out.println("Please correct the information.");
-					System.out.print("Product Name: "); input.nextLine(); currentElectric.name = input.nextLine();
-					System.out.print("ID: ");	currentElectric.id = input.nextInt();
-					System.out.print("Product Price: "); currentElectric.price = input.nextFloat();
+					System.out.print("Product Name: ");
+                    input.nextLine(); currentElectric.name = input.nextLine();
+					System.out.print("ID: "); 
+                    currentElectric.id = input.nextInt();
+					System.out.print("Product Price: "); 
+                    currentElectric.price = input.nextFloat();
+                    System.out.print("Inventory quantity: "); 
+                    currentCrockerySet.inventory = input.nextInt() ;
 					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
 					
 					Date b = null;
@@ -506,6 +526,8 @@ public class Inventory {
 					}
 					currentElectric.date = b;
                     System.out.println("---Successful repair");
+                    System.out.println("Information after change: ");
+                    currentElectric.inThongTin();
 					return;
 				}
 				currentElectric = currentElectric.next;
@@ -515,9 +537,14 @@ public class Inventory {
 				if (currentCrockerySet.id == id) {
 					currentCrockerySet.inThongTin();
 					System.out.println("Please correct the information.");
-					System.out.print("Product Name: "); input.nextLine(); currentCrockerySet.name = input.nextLine();
-					System.out.print("ID: ");	currentCrockerySet.id = input.nextInt();
-					System.out.print("Product Price: "); currentCrockerySet.price = input.nextFloat();
+					System.out.print("Product Name: "); 
+                    input.nextLine(); currentCrockerySet.name = input.nextLine();
+					System.out.print("ID: ");	
+                    currentCrockerySet.id = input.nextInt();
+					System.out.print("Product Price: "); 
+                    currentCrockerySet.price = input.nextFloat();
+                    System.out.print("Inventory quantity: "); 
+                    currentCrockerySet.inventory = input.nextInt() ;
 					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
 					
 					Date b = null;
@@ -530,6 +557,8 @@ public class Inventory {
 					}
 					currentCrockerySet.date = b;
                     System.out.println("---Successful repair");
+                    System.out.println("Information after change: ");
+                    currentCrockerySet.inThongTin();
 					return;
 				}
 				currentCrockerySet = currentCrockerySet.next;
@@ -539,9 +568,14 @@ public class Inventory {
 				if (currentFood.id == id) {
 					currentFood.inThongTin();
 					System.out.println("Please correct the information.");
-					System.out.print("Product Name: "); input.nextLine(); currentFood.name = input.nextLine();
-					System.out.print("ID: ");	currentFood.id = input.nextInt();
-					System.out.print("Product Price: "); currentFood.price = input.nextFloat();
+					System.out.print("Product Name: "); 
+                    input.nextLine(); currentFood.name = input.nextLine();
+					System.out.print("ID: ");	
+                    currentFood.id = input.nextInt();
+					System.out.print("Product Price: "); 
+                    currentFood.price = input.nextFloat();
+                    System.out.print("Inventory quantity: "); 
+                    currentFood.inventory = input.nextInt() ;
 					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
 					
 					Date b = null;
@@ -554,6 +588,8 @@ public class Inventory {
 					}
 					currentFood.date= b;
                     System.out.println("---Successful repair");
+                    System.out.println("Information after change: ");
+                    currentFood.inThongTin();
 					return;
 				}
 				currentFood = currentFood.next;

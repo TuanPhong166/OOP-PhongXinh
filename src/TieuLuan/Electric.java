@@ -12,7 +12,7 @@ public class Electric {
     Date date ; // ngày nhập kho
     int inventory;
 
-    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy"); 
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy"); 
 
     Electric next ;
     
