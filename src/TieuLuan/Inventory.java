@@ -491,11 +491,7 @@ public class Inventory {
 		
     }
 
-    public void sortUpPrice(){
-
-    }
-
-    public void fixByType(Scanner input){
+    public void fixById(Scanner input){
         System.out.print("Enter the id of the item you want to fix: "); 
         int id = input.nextInt();
 			Electric currentElectric = headElectric;
@@ -595,4 +591,108 @@ public class Inventory {
 				currentFood = currentFood.next;
 			}
     }
+
+    public void fixByPrice(Scanner input){
+        System.out.print("Enter the price of the item you want to fix: "); 
+        float price = input.nextInt();
+			Electric currentElectric = headElectric;
+			CrockerySet currentCrockerySet = headCrockerySet;
+			Food currentFood = headFood;
+			
+			while (currentElectric != null) {
+				if (currentElectric.price == price) {
+					currentElectric.inThongTin();
+					System.out.println("Please correct the information.");
+					System.out.print("Product Name: ");
+                    input.nextLine(); currentElectric.name = input.nextLine();
+					System.out.print("Id: "); 
+                    currentElectric.id = input.nextInt();
+					System.out.print("Product Price: "); 
+                    currentElectric.price = input.nextFloat();
+                    System.out.print("Inventory quantity: "); 
+                    currentCrockerySet.inventory = input.nextInt() ;
+					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
+					
+					Date b = null;
+					input.nextLine();
+					String date = input.nextLine();
+					try {
+						b = dateFormat.parse(date);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					currentElectric.date = b;
+                    System.out.println("---Successful repair");
+                    System.out.println("Information after change: ");
+                    currentElectric.inThongTin();
+					return;
+				}
+				currentElectric = currentElectric.next;
+			}
+			
+			while (currentCrockerySet != null) {
+				if (currentCrockerySet.price == price) {
+					currentCrockerySet.inThongTin();
+					System.out.println("Please correct the information.");
+					System.out.print("Product Name: "); 
+                    input.nextLine(); currentCrockerySet.name = input.nextLine();
+					System.out.print("Id: ");	
+                    currentCrockerySet.id = input.nextInt();
+					System.out.print("Product Price: "); 
+                    currentCrockerySet.price = input.nextFloat();
+                    System.out.print("Inventory quantity: "); 
+                    currentCrockerySet.inventory = input.nextInt() ;
+					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
+					
+					Date b = null;
+					input.nextLine();
+					String date = input.nextLine();
+					try {
+						b = dateFormat.parse(date);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					currentCrockerySet.date = b;
+                    System.out.println("---Successful repair");
+                    System.out.println("Information after change: ");
+                    currentCrockerySet.inThongTin();
+					return;
+				}
+				currentCrockerySet = currentCrockerySet.next;
+			}
+			
+			while (currentFood != null) {
+				if (currentFood.price == price) {
+					currentFood.inThongTin();
+					System.out.println("Please correct the information.");
+					System.out.print("Product Name: "); 
+                    input.nextLine(); currentFood.name = input.nextLine();
+					System.out.print("Id: ");	
+                    currentFood.id = input.nextInt();
+					System.out.print("Product Price: "); 
+                    currentFood.price = input.nextFloat();
+                    System.out.print("Inventory quantity: "); 
+                    currentFood.inventory = input.nextInt() ;
+					System.out.print("Enter the date according to the form (dd-MM-yyyy): ");
+					
+					Date b = null;
+					input.nextLine();
+					String date = input.nextLine();
+					try {
+						b = dateFormat.parse(date);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
+					currentFood.date= b;
+                    System.out.println("---Successful repair");
+                    System.out.println("Information after change: ");
+                    currentFood.inThongTin();
+					return;
+				}
+				currentFood = currentFood.next;
+			}
+    }
+
+    
+   
 }

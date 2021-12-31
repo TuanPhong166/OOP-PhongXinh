@@ -128,7 +128,28 @@ public class MainManage {
                 break ;
             case 3: 
                 System.out.println("3.>> Fix goods.");
-                inventory.fixByType(input);
+                System.out.println("----------------------");
+                System.out.println("|  1.>> Fix by id    |");
+                System.out.println("|  2.>> Fix by price |");
+                System.out.println("|  0.>> Back to menu |");
+                System.out.println("---------------------");
+                key = input.nextInt();
+                switch (key) {
+                    case 1:
+                        System.out.println("1.>> Fix by Id.");
+                        inventory.fixById(input);
+                        break;
+                    case 2:
+                        System.out.println("2.>> Fix by price.");
+                        inventory.fixByPrice(input);
+                        break ;
+                    case 0:
+                        break ;
+                    default:
+                       System.out.println("Looks like you made the wrong choice.");
+                       System.out.println("Please choose again.");
+                        break;
+                }
                 break ;
             case 4:
                 System.out.println("4.>> Print product list.");
@@ -190,8 +211,6 @@ public class MainManage {
         inventory.thongKe(input);
     }
    
-    static void menuSort(){
-
-    }
+    
    
 }
