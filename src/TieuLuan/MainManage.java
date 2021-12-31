@@ -83,7 +83,7 @@ public class MainManage {
                 menuSreach();;
                 break;
             case 3:
-                menuSort();
+                System.out.println("Unfinished function");
                 break;
             case 4:
                 menuThongKe();
@@ -129,9 +129,9 @@ public class MainManage {
             case 3: 
                 System.out.println("3.>> Fix goods.");
                 System.out.println("----------------------");
-                System.out.println("|  1.>> Fix by id    |");
-                System.out.println("|  2.>> Fix by price |");
-                System.out.println("|  0.>> Back to menu |");
+                System.out.println("|  1.>> Fix by id.    |");
+                System.out.println("|  2.>> Fix by price. |");
+                System.out.println("|  0.>> Back to menu. |");
                 System.out.println("---------------------");
                 key = input.nextInt();
                 switch (key) {
