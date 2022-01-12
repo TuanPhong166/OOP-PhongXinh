@@ -447,15 +447,16 @@ public class Inventory {
 	}
     
     public void thongKe(Scanner input){
-        int tongSLHang;
-		int sumE = 0;
-		int sumC = 0;
-		int sumF = 0;
 		
 		float sumValue = 0;
 		float sumValueE = 0;
 		float sumValueC = 0;
 		float sumValueF = 0;
+
+        int tongSLHang;
+		int sumE = 0;
+		int sumC = 0;
+		int sumF = 0;
 		
 		Electric currentElectric = headElectric;
 		CrockerySet currentCrockerySet = headCrockerySet;

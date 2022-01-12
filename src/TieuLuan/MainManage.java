@@ -83,7 +83,7 @@ public class MainManage {
                 menuSreach();;
                 break;
             case 3:
-                System.out.println("Unfinished function");
+                System.out.println("Unfinished function.");
                 break;
             case 4:
                 menuThongKe();
