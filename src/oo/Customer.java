@@ -8,6 +8,7 @@ public class Customer {
     // data
     String cusName ;
     String address ;
+     
 
     // fuction 
     public void Data(){
