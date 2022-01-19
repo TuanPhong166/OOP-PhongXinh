@@ -10,4 +10,7 @@ public class Shape {
     public void xoayHinh(){
         System.out.println("Da Xoay");
     }
+    public void doiHinh(){
+        System.out.println("DA doi");
+    }
 }
