@@ -2,6 +2,19 @@ package Buoi4;
 
 public class MyInterger {
     private int value ;
+    
+    public MyInterger(int initialValue){
+        value = initialValue ;
+    }
+
+    public MyInterger(){
+        this(0) ;
+    }
+
+    public MyInterger(MyInterger other){
+        this(other.value);
+    }
+    
     public boolean greatThan (MyInterger other){
         return (this.value > other.value);
     }
@@ -11,6 +24,7 @@ public class MyInterger {
     }
 
     public MyInterger increment(){
-        value++
+        value++;
+        return this ;
     }
 }
