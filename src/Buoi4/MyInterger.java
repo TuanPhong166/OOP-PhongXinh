@@ -1,7 +1,7 @@
 package Buoi4;
 
 public class MyInterger {
-    private int value ;
+     int value ;
     
     public MyInterger(int initialValue){
         value = initialValue ;
@@ -14,7 +14,7 @@ public class MyInterger {
     public MyInterger(MyInterger other){
         this(other.value);
     }
-    
+
     public boolean greatThan (MyInterger other){
         return (this.value > other.value);
     }
