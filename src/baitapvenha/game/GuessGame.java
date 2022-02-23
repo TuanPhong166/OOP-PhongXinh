@@ -1,9 +1,9 @@
 package baitapvenha.game;
 
 public class GuessGame {
-    Player p1 ;
-    Player p2 ;
-    Player p3 ;
+    private Player p1 ;
+    private Player p2 ;
+    private Player p3 ;
 
     public void startGame(){
         p1 = new Player() ;
@@ -28,11 +28,11 @@ public class GuessGame {
             p2.guess();
             p3.guess();
             
-            guessp1 = p1.number ;
+            guessp1 = p1.getNumber() ;
             System.out.println("Player one guess "+guessp1);
-            guessp2 = p2.number ;
+            guessp2 = p2.getNumber() ;
             System.out.println("Player two guess "+guessp2);
-            guessp3 = p3.number ;
+            guessp3 = p3.getNumber() ;
             System.out.println("Player three guess "+guessp3);
 
             if(guessp1 == targetNumber){
@@ -56,5 +56,5 @@ public class GuessGame {
                 System.out.println("Players will have to try again.");
             }
         }
-    }
+    }   
 }
