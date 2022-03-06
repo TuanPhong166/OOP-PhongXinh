@@ -1,15 +1,11 @@
-package baitapvenha.Shape;
+package buoi6;
 
-public class Amoeba {
-    
+public class Hinh {
     private String fileAmThanh ; // Tet.hif
-    private int xPoint ;
-    private int yPoint ;
-
     
-    public Amoeba(){}
+    public Hinh(){}
 
-    public Amoeba(String _fileAmThanh){
+    public Hinh(String _fileAmThanh){
         this.fileAmThanh = _fileAmThanh ;
     }
 
@@ -28,7 +24,6 @@ public class Amoeba {
     }
 
     void xoayHinh(){
-        System.out.println("Xoay theo " +this.xPoint+ " va"+this. yPoint );
+        System.out.println("Đã xoay 360--");
     }
-
 }
